@@ -9,6 +9,7 @@ function buildUserDataScript(githubRegistrationToken, label) {
     // to be pre-installed in the AMI, so we simply cd into that directory and then start the runner
     return [
       '#!/bin/bash',
+      `cp -rT /home/ubuntu/actions-runner "${config.input.runnerHomeDir}"`,
       `cd "${config.input.runnerHomeDir}"`,
       'export RUNNER_ALLOW_RUNASROOT=1',
       'export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1',
