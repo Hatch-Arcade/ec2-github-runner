@@ -13,7 +13,7 @@ function buildUserDataScript(githubRegistrationToken, label) {
       `cd "${config.input.runnerHomeDir}"`,
       'export RUNNER_ALLOW_RUNASROOT=1',
       'export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1',
-      `./config.sh --url https://github.com/${config.githubContext.owner}/${config.githubContext.repo} --token ${githubRegistrationToken} --labels ${label}`,
+      `./config.sh --unattended --url https://github.com/${config.githubContext.owner}/${config.githubContext.repo} --token ${githubRegistrationToken} --labels ${label} --replace --name ${label}`,
       './run.sh',
     ];
   } else {
